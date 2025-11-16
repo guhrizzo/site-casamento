@@ -50,7 +50,7 @@ export default function pagCerto() {
 
 
     return (
-        <div className="bg-[#5ccb60dc] flex flex-col w-screen min-h-screen justify-center items-center">
+        <div className="bg-linear-to-bl from-[#74e079] to-[#4caf50] flex flex-col w-screen min-h-screen justify-center items-center">
             <div className="bg-[#f2f2f2] w-[90vw] min-h-[80vh] rounded-4xl flex text-black relative">
                 <div className="flex bg-gray-300 w-[100px] h-[50px] rounded-4xl m-4 
     justify-center items-center 
