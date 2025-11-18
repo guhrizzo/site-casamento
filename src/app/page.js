@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import pagCerto from "./pagCerto/page";
 
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"]
