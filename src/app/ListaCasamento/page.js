@@ -62,7 +62,7 @@ export default function listacasamento() {
                     <Brincadeira nome="Camisa de time para a alegria do noivo" preco="130,00" imagem="/camisatime.jpg" />
                     <Brincadeira nome="Capacete anti rolo de macarrão" preco="500,00" imagem="/capacete.jpg" />
                     <Brincadeira nome="2 semanas de almoço garantido em casa" preco="500,00" imagem="/comida.jpg" />
-                    <Brincadeira nome="Coleção de jogos para a alegria do noivo e tristeza da noiva" preco="500,00" imagem="/jogos.jpg" />
+                    <Brincadeira nome="Coleção de jogos para a alegria do noivo e tristeza da noiva" preco="500,00" imagem="/jogos.JPG" />
                     <Brincadeira nome="Conjunto de controles remotos para não ter briga" preco="500,00" imagem="/controle.jpeg" />
                     <Brincadeira nome="Coleção de livros (de RPG)" preco="500,00" imagem="/livros.jpg" />
                     <Brincadeira nome="Conjunto de sabres de luzes para o casal" preco="500,00" imagem="/sabres-luz.jpg" />
