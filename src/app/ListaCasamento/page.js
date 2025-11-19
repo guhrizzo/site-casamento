@@ -69,7 +69,7 @@ export default function listacasamento() {
                     <Brincadeira nome="Crédito para os noivos ligarem pros familiares" preco="500,00" imagem="/creditocelular.jpg" />
                     <Brincadeira nome="Almofada anti ronco (não funciona)" preco="500,00" imagem="/antironco.jpg" />
                 </div>
-                <Footer />
+                
 
 
             </div>
