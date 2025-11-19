@@ -40,7 +40,7 @@ export default function listacasamento() {
                 </div>
                 <div className="w-[30vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-12 flex items-center justify-center shadow-xl flex-col">
                     <Image src={"/rings.png"} width={70} height={70} className="absolute top-4" />
-                    <p className="text-black text-3xl mt-2">#########</p>
+                    <p className="text-black text-3xl mt-2 font-medium">Isabelle Rizzatto</p>
                     <p className="text-black text-3xl">&</p>
                     <p className="text-black text-3xl mb-2 font-medium">Otávio Moretto</p>
                     <div className="flex flex-col absolute bottom-4 items-center">
@@ -52,7 +52,7 @@ export default function listacasamento() {
                 </div>
             </div>
             <div className="bg-[#f2f2f2] w-screen h-auto">
-                <p className="text-black text-4xl font-bold p-12 pt-6 pb-6">Envie uma brincadeira para os noivos!</p>
+                <p className="text-black text-4xl font-bold p-12 pt-6 pb-6">Envie um presente para os noivos!</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-6 pb-12">
                     <Brincadeira nome="Um Kilo de Café" preco="350,00" imagem="/cafekg.jpg" />
                     <Brincadeira nome="Academia para os noivos depois da lua de mel" preco="280,00" imagem="/academia.jpg" />
