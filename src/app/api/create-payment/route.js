@@ -1,31 +1,39 @@
-import { MercadoPagoConfig, Preference } from "mercadopago";
-
-const client = new MercadoPagoConfig({
-  accessToken: process.env.MP_ACCESS_TOKEN,
-});
-
 export async function POST(req) {
   try {
-    const { title, price } = await req.json();
+    const { nome, preco, imagem } = await req.json();
 
-    const preference = new Preference(client);
+    const priceInCents = Math.round(preco * 100);
 
-    const result = await preference.create({
-      body: {
+    const response = await fetch("https://api.infinitepay.io/invoices/public/checkout/links", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        handle: "gustavo-fernandes-738",
+        redirect_url: "https://site-casamento-beryl.vercel.app/pagCerto",
+        webhook_url: "https://seusite.com/webhook",
+        order_nsu: Date.now().toString(),
         items: [
           {
-            title,
             quantity: 1,
-            unit_price: Number(price),
+            price: priceInCents,
+            description: nome,
+            image_url: imagem, // AGORA FUNCIONA
           },
         ],
-      },
+      }),
     });
 
-    return Response.json({ id: result.id });
+    const data = await response.json();
+
+    return Response.json({
+      checkout_url: data.payment_url || data.url || null,
+      raw: data
+    });
 
   } catch (error) {
-    console.error("Erro ao criar pagamento:", error);
-    return Response.json({ error: true }, { status: 500 });
+    console.log("Erro API InfinitePay:", error);
+    return Response.json({ error: true, message: error.message });
   }
 }

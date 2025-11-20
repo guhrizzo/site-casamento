@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 
-
 export default function Brincadeira({ nome, preco, imagem }) {
-
   async function pagar() {
     const precoNumerico = Number(preco.replace(",", "."));
 
@@ -11,17 +9,19 @@ export default function Brincadeira({ nome, preco, imagem }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title: nome,
-        price: precoNumerico,
+        nome: nome,
+        preco: precoNumerico,
+        imagem: imagem, // agora envia a imagem também
       }),
     });
 
     const data = await res.json();
 
-    if (data.init_point) {
-      window.location.href = data.init_point;
+    if (data.checkout_url) {
+      window.location.href = data.checkout_url; // Redireciona pro link da InfinitePay
     } else {
-      alert("Erro ao iniciar o pagamento!");
+      alert("Erro ao gerar link!");
+      console.log("Erro:", data);
     }
   }
 
@@ -30,7 +30,7 @@ export default function Brincadeira({ nome, preco, imagem }) {
 
       {/* Foto */}
       <div className="w-full h-[170px] overflow-hidden">
-        <img 
+        <img
           src={imagem}
           alt={nome}
           className="w-full h-full object-cover rounded-t-2xl"
