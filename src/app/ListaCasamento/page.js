@@ -33,7 +33,7 @@ export default function listacasamento() {
                         big={true}
                         className=""
                     />
-                    <button className="w-[57vw] bg-orange-300 mt-6 rounded-4xl p-2.5 flex items-center justify-center font-bold text-xl ease-in-out delay-75 transition-all hover:bg-orange-400 hover:cursor-pointer hover:scale-[101%]">Enviar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-send ml-2" viewBox="0 0 16 16">
+                    <button className="w-[57vw] bg-orange-400 mt-6 rounded-4xl p-2.5 flex items-center justify-center font-bold text-xl ease-in-out delay-75 transition-all hover:bg-orange-500 hover:cursor-pointer hover:scale-[101%]">Enviar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-send ml-2" viewBox="0 0 16 16">
                         <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
                     </svg></button>
                 </div>
@@ -68,6 +68,16 @@ export default function listacasamento() {
                     <Brincadeira nome="Cota para pagar o prejuizo da viagem" preco="500,00" imagem="/viagem.jpg" />
                     <Brincadeira nome="Crédito para os noivos ligarem pros familiares" preco="500,00" imagem="/creditocelular.jpg" />
                     <Brincadeira nome="Almofada anti ronco (não funciona)" preco="500,00" imagem="/antironco.jpg" />
+                    <Brincadeira nome="Deus te iluminou e você dar uma boa ajuda na nossa lua de mel" preco="3328,00" imagem="/paisagem.jpg" />
+                    <Brincadeira nome="Garantir que a noiva faça um jantar delicioso para o noivo" preco="80,00" imagem="/pizza.jpg" />
+                    <Brincadeira nome="Kit de primeiros socorros para a noiva" preco="159,00" imagem="/itensfeminos.jpg" />
+                    <Brincadeira nome="Rolo de macarrão para a noiva utilizar quando necessário" preco="147,00" imagem="/rolomacarrao.jpg" />
+                    <Brincadeira nome="Vaquinha para os noivos quebrados" preco="4659,00" imagem="/porquinho.jpg" />
+                    <Brincadeira nome="Só para não dizer que não dei nada" preco="14,00" imagem="/dindin.jpg" />
+                    <Brincadeira nome="Desodorante para o noivo não esquecer de passar" preco="28,00" imagem="/desodorante.png"/>
+                    <Brincadeira nome="Apreciar um bom churrasco" preco="268,35" imagem="/churras.jpg"/>
+                    <Brincadeira nome="Café da manhã no hotel pós noite de núpcias" preco="226,78" imagem="/cafemanha.jpg"/>
+                    <Brincadeira nome="Café da manhã servido no quarto" preco="28,00" imagem="/cafemanha1.jpg"/>
                 </div>
                 
 
