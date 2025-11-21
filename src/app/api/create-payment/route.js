@@ -10,7 +10,7 @@ export async function POST(req) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        handle: "gustavo-fernandes-738",
+        handle: "otavio-moretto",
         redirect_url: "https://site-casamento-beryl.vercel.app/pagCerto",
         webhook_url: "https://seusite.com/webhook",
         order_nsu: Date.now().toString(),

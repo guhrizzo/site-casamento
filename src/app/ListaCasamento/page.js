@@ -45,7 +45,7 @@ export default function listacasamento() {
                     <div className="flex flex-col absolute bottom-4 items-center">
                         <p className="text-black text-[18px] mt-6"> Te convidam pro casamento!</p>
                         <div className="w-[500px] h-0.5 bg-[#00000025] rounded-2xl mt-2 mb-2"></div>
-                        <p className="text-black text-2xl font-bold"> Em Janeiro de 2026!</p>
+                        <p className="text-black text-xl font-bold"> Em 10 de Janeiro de 2026!</p>
                     </div>
 
                 </div>

@@ -83,7 +83,7 @@ export default function pagCerto() {
                 </div>
 
                 <div className="absolute right-[100px] top-[100px]">
-                    <Image src={"/check-.png"} width={600} height={600} alt="Check" />
+                    <Image src={"/check.png"} width={600} height={600} alt="Check" />
                 </div>
             </div>
         </div>
