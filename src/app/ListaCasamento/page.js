@@ -20,7 +20,7 @@ export default function listacasamento() {
                 <h2 className="text-2xl uppercase text-orange-300">Pro Casamento</h2>
             </div>
             <div className="bg-[#f0e4cb] w-screen min-h-[125dvh] lg:min-h-[60dvh]">
-                <div className="w-[91vw] bg-[#f2f2f2] min-h-[50vh] absolute m-5 mt-[450px] right-0 rounded-2xl shadow-xl p-6 lg:w-[60vw] lg:m-12">
+                <div className="w-[91vw] bg-[#f2f2f2] min-h-[50vh] absolute m-6 mt-[450px] right-0 rounded-2xl shadow-xl p-6 lg:w-[60vw] lg:m-12">
                     <Input
                         label="Nome do Casal"
                         placeholder="Digite o nome..."
