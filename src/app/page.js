@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Button from "./button";
 import { Poppins } from "next/font/google";
-import Link from "next/link";
-import pagCerto from "./pagCerto/page";
-
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -26,7 +23,7 @@ export default function Home() {
           className="absolute left-0 hidden ml-[15vw] opacity-10 scale-[102%] blur-xl z-0 lg:block"/>
         <div className="bg-[#fee68542] w-screen min-h-screen absolute right-0 backdrop-blur-[10px] border-l-2 border-[#ffffff17] flex justify-center items-center flex-col  lg:opacity-100 lg:w-[40vw]">
 
-          <div className="border-[#ffffff93] bg-[#ffffff80] border-2 rounded-[32px] w-[95%] h-[80vh] shadow-[0px_0px_16px_0px_rgba(0,_0,_0,_0.1)] flex flex-col justify-center lg:w-[80%] lg:h-[70vh]">
+          <div className="border-[#ffffff93] bg-[#ffffff80] border-2 rounded-4xl w-[95%] h-[80vh] shadow-[0px_0px_16px_0px_rgba(0,0,0,0.1)] flex flex-col justify-center lg:w-[80%] lg:h-[70vh]">
             <h1 className={`${poppins.className} text-[50px] text-[#141414] font-bold text-center mt-2 lg:text-[31px]`}>
               Olá é muito bom ter você conosco!
             </h1>
