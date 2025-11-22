@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="bg-[#fcf9f6] w-screen min-h-[5vh] text-[#989289] flex justify-center items-center ">
-            <div className="flex flex-col items-center"><p className="text-[10px] lg:text-[12px]">
+            <div className="flex flex-col items-center"><p className="text-[8px] lg:text-[12px]">
                 © {new Date().getFullYear()} – Todos os direitos reservados a Otávio Moretto
             </p>
 
