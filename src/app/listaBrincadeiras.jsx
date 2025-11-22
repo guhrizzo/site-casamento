@@ -33,7 +33,7 @@ export default function Brincadeira({ nome, preco, imagem }) {
   }
 
   return (
-    <div className="w-[17vw] bg-white rounded-2xl overflow-hidden border shadow-xl">
+    <div className="w-[90vw] bg-white rounded-2xl overflow-hidden border shadow-xl lg:w-[17vw]">
 
       <div className="w-full h-[190px] overflow-hidden">
         <img

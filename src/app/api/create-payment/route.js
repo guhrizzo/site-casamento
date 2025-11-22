@@ -19,7 +19,7 @@ export async function POST(req) {
             quantity: 1,
             price: priceInCents,
             description: nome,
-            image_url: imagem, // AGORA FUNCIONA
+            image_url: imagem, 
           },
         ],
       }),

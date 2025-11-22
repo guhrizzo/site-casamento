@@ -23,7 +23,7 @@ const Input = ({
         <textarea
           id={label}
           placeholder={placeholder}
-          className={`border-orange-300 px-2.5 py-[11px] text-xs bg-[#f2f2f2] border-2 rounded-[5px] w-[57vw] h-[30vh] text-black resize-none focus:outline-none placeholder:text-black/25 ${className}`}
+          className={`border-orange-300 px-2.5 py-[11px] text-xs bg-[#f2f2f2] border-2 rounded-[5px] w-[80vw] h-[30vh] lg:w-[57dvw] text-black resize-none focus:outline-none placeholder:text-black/25 ${className}`}
           {...props}
         />
       ) : (
@@ -31,7 +31,7 @@ const Input = ({
           id={label}
           type={type}
           placeholder={placeholder}
-          className={`border-orange-300 px-2.5 py-[11px] text-xs bg-[#f2f2f2] border-2 rounded-[5px] w-[57vw] text-black focus:outline-none placeholder:text-black/25 ${className}`}
+          className={`border-orange-300 px-2.5 py-[11px] text-xs bg-[#f2f2f2] border-2 rounded-[5px] w-[80vw] lg:w-[57dvw] text-black focus:outline-none placeholder:text-black/25 ${className}`}
           {...props}
         />
       )}

@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import Input from "../input";
 import Brincadeira from "../listaBrincadeiras";
-
+import Footer from "../rodape";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -19,8 +19,8 @@ export default function listacasamento() {
                 <h1 className="text-3xl font-bold uppercase text-orange-300">Lista de Presente</h1>
                 <h2 className="text-2xl uppercase text-orange-300">Pro Casamento</h2>
             </div>
-            <div className="bg-[#f0e4cb] w-screen min-h-[60vh] ">
-                <div className="w-[60vw] bg-[#f2f2f2] min-h-[50vh] absolute m-12 right-0 rounded-2xl shadow-xl p-6">
+            <div className="bg-[#f0e4cb] w-screen min-h-[110dvh] lg:min-h-[60dvh]">
+                <div className="w-[91vw] bg-[#f2f2f2] min-h-[50vh] absolute m-5 mt-[500px] right-0 rounded-2xl shadow-xl p-6 lg:w-[60vw] lg:m-12">
                     <Input
                         label="Nome do Casal"
                         placeholder="Digite o nome..."
@@ -33,26 +33,26 @@ export default function listacasamento() {
                         big={true}
                         className=""
                     />
-                    <button className="w-[57vw] bg-orange-400 mt-6 rounded-4xl p-2.5 flex items-center justify-center font-bold text-xl ease-in-out delay-75 transition-all hover:bg-orange-500 hover:cursor-pointer hover:scale-[101%]">Enviar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-send ml-2" viewBox="0 0 16 16">
+                    <button className="w-[80dvw] bg-orange-400 mt-6 rounded-4xl p-2.5 flex items-center justify-center font-bold text-xl ease-in-out delay-75 transition-all lg:w-[57vw] hover:bg-orange-500 hover:cursor-pointer hover:scale-[101%]">Enviar<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-send ml-2" viewBox="0 0 16 16">
                         <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
                     </svg></button>
                 </div>
-                <div className="w-[30vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-12 flex items-center justify-center shadow-xl flex-col">
+                <div className="w-[90vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-5 flex items-center justify-center lg:m-12 shadow-lg flex-col lg:w-[30dvw]">
                     <Image src={"/rings.png"} width={70} height={70} className="absolute top-4" />
                     <p className="text-black text-3xl mt-2 font-medium">Isabelle Rizzatto</p>
                     <p className="text-black text-3xl">&</p>
                     <p className="text-black text-3xl mb-2 font-medium">Otávio Moretto</p>
                     <div className="flex flex-col absolute bottom-4 items-center">
                         <p className="text-black text-[18px] mt-6"> Te convidam pro casamento!</p>
-                        <div className="w-[500px] h-0.5 bg-[#00000025] rounded-2xl mt-2 mb-2"></div>
+                        <div className="w-[300px] h-0.5 bg-[#00000025] rounded-2xl mt-2 mb-2 lg:w-[500px]"></div>
                         <p className="text-black text-xl font-bold"> Em 10 de Janeiro de 2026!</p>
                     </div>
 
                 </div>
             </div>
             <div className="bg-[#f2f2f2] w-screen h-auto">
-                <p className="text-black text-4xl font-bold p-12 pt-6 pb-6">Envie um presente para os noivos!</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-6 pb-12">
+                <p className="text-black text-3xl font-bold p-8 pt-6 pb-6 lg:text-4xl lg:p-12">Envie um presente para os noivos!</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-6 pb-12 ">
                     <Brincadeira nome="Um Kilo de Café" preco="350,00" imagem="/cafekg.jpg" />
                     <Brincadeira nome="Academia para os noivos depois da lua de mel" preco="280,00" imagem="/academia.jpg" />
                     <Brincadeira nome="Acessório para o noivo cortar as unhas" preco="150,00" imagem="/lixadeira.jpg" />
@@ -79,7 +79,7 @@ export default function listacasamento() {
                     <Brincadeira nome="Café da manhã no hotel pós noite de núpcias" preco="226,78" imagem="/cafemanha.jpg"/>
                     <Brincadeira nome="Café da manhã servido no quarto" preco="28,00" imagem="/cafemanha1.jpg"/>
                 </div>
-                
+                <Footer />
 
 
             </div>
