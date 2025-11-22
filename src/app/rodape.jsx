@@ -4,9 +4,6 @@ export default function Footer() {
             <div className="flex flex-col items-center"><p className="text-[10px] lg:text-[12px]">
                 © {new Date().getFullYear()} – Todos os direitos reservados a Otávio Moretto
             </p>
-                <p className="text-[11px]">
-                    CNPJ 55.116.497/0001-08 • contato@otaviomoretto.com
-                </p>
 
             </div>
             <div className="w-0.5 h-8 rounded bg-[#989289] ml-2"></div>
