@@ -39,9 +39,9 @@ export default function listacasamento() {
                 </div>
                 <div className="w-[91vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-5 flex items-center justify-center lg:m-12 shadow-lg flex-col lg:w-[30dvw]">
                     <Image src={"/rings.png"} width={70} height={70} className="absolute top-4" />
-                    <p className="text-black text-3xl mt-2 font-medium">Isabelle Rizzatto</p>
-                    <p className="text-black text-3xl">&</p>
                     <p className="text-black text-3xl mb-2 font-medium">Otávio Moretto</p>
+                    <p className="text-black text-3xl">&</p>
+                    <p className="text-black text-3xl mt-2 font-medium">Isabelle Rizzatto</p>
                     <div className="flex flex-col absolute bottom-4 items-center">
                         <p className="text-black text-[18px] mt-6"> Te convidam pro casamento!</p>
                         <div className="w-[300px] h-0.5 bg-[#00000025] rounded-2xl mt-2 mb-2 lg:w-[500px]"></div>
@@ -53,20 +53,20 @@ export default function listacasamento() {
             <div className="bg-[#f2f2f2] w-screen h-auto">
                 <p className="text-black text-3xl font-bold p-8 pt-6 pb-6 lg:text-4xl lg:p-12">Envie um presente para os noivos!</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 px-6 pb-12 ">
-                    <Brincadeira nome="Um Kilo de Café" preco="350,00" imagem="/cafekg.jpg" />
-                    <Brincadeira nome="Academia para os noivos depois da lua de mel" preco="280,00" imagem="/academia.jpg" />
-                    <Brincadeira nome="Acessório para o noivo cortar as unhas" preco="150,00" imagem="/lixadeira.jpg" />
-                    <Brincadeira nome="Balança para os noivos verem o estrago" preco="220,00" imagem="/balanca.jpeg" />
-                    <Brincadeira nome="Bolo de cenoura semanal para a noiva" preco="110,00" imagem="/bolo-de-cenoura.png" />
+                    <Brincadeira nome="Um Kilo de Café" preco="492,00" imagem="/cafekg.jpg" />
+                    <Brincadeira nome="Academia para os noivos depois da lua de mel" preco="480,00" imagem="/academia.jpg" />
+                    <Brincadeira nome="Acessório para o noivo cortar as unhas" preco="400,00" imagem="/lixadeira.jpg" />
+                    <Brincadeira nome="Balança para os noivos verem o estrago" preco="80,00" imagem="/balanca.jpeg" />
+                    <Brincadeira nome="Bolo de cenoura semanal para a noiva" preco="94,00" imagem="/bolo-de-cenoura.png" />
                     <Brincadeira nome="Camisa de time para a alegria do noivo" preco="130,00" imagem="/camisatime.jpg" />
                     <Brincadeira nome="Capacete anti rolo de macarrão" preco="500,00" imagem="/capacete.jpg" />
-                    <Brincadeira nome="2 semanas de almoço garantido em casa" preco="500,00" imagem="/comida.jpg" />
-                    <Brincadeira nome="Coleção de jogos para a alegria do noivo e tristeza da noiva" preco="500,00" imagem="/jogos.JPG" />
-                    <Brincadeira nome="Conjunto de controles remotos para não ter briga" preco="500,00" imagem="/controle.jpeg" />
-                    <Brincadeira nome="Coleção de livros (de RPG)" preco="500,00" imagem="/livros.jpg" />
-                    <Brincadeira nome="Conjunto de sabres de luzes para o casal" preco="500,00" imagem="/sabres-luz.jpg" />
-                    <Brincadeira nome="Cota para pagar o prejuizo da viagem" preco="500,00" imagem="/viagem.jpg" />
-                    <Brincadeira nome="Crédito para os noivos ligarem pros familiares" preco="500,00" imagem="/creditocelular.jpg" />
+                    <Brincadeira nome="1 mês de almoço garantido em casa" preco="400,00" imagem="/comida.jpg" />
+                    <Brincadeira nome="Coleção de jogos para a alegria do noivo e tristeza da noiva" preco="244,00" imagem="/jogos.JPG" />
+                    <Brincadeira nome="Conjunto de controles remotos para não ter briga" preco="80,00" imagem="/controle.jpeg" />
+                    <Brincadeira nome="Coleção de livros (de RPG)" preco="533,00" imagem="/livros.jpg" />
+                    <Brincadeira nome="Conjunto de sabres de luzes para o casal" preco="667,00" imagem="/sabres-luz.jpg" />
+                    <Brincadeira nome="Cota para pagar o prejuizo da viagem" preco="134,00" imagem="/viagem.jpg" />
+                    <Brincadeira nome="Crédito para os noivos ligarem pros familiares" preco="141,00" imagem="/creditocelular.jpg" />
                     <Brincadeira nome="Almofada anti ronco (não funciona)" preco="500,00" imagem="/antironco.jpg" />
                     <Brincadeira nome="Deus te iluminou e você dar uma boa ajuda na nossa lua de mel" preco="3328,00" imagem="/paisagem.jpg" />
                     <Brincadeira nome="Garantir que a noiva faça um jantar delicioso para o noivo" preco="80,00" imagem="/pizza.jpg" />
@@ -74,10 +74,10 @@ export default function listacasamento() {
                     <Brincadeira nome="Rolo de macarrão para a noiva utilizar quando necessário" preco="147,00" imagem="/rolomacarrao.jpg" />
                     <Brincadeira nome="Vaquinha para os noivos quebrados" preco="4659,00" imagem="/porquinho.jpg" />
                     <Brincadeira nome="Só para não dizer que não dei nada" preco="14,00" imagem="/dindin.jpg" />
-                    <Brincadeira nome="Desodorante para o noivo não esquecer de passar" preco="28,00" imagem="/desodorante.png"/>
-                    <Brincadeira nome="Apreciar um bom churrasco" preco="268,35" imagem="/churras.jpg"/>
-                    <Brincadeira nome="Café da manhã no hotel pós noite de núpcias" preco="226,78" imagem="/cafemanha.jpg"/>
-                    <Brincadeira nome="Café da manhã servido no quarto" preco="28,00" imagem="/cafemanha1.jpg"/>
+                    <Brincadeira nome="Desodorante para o noivo não esquecer de passar" preco="28,00" imagem="/desodorante.png" />
+                    <Brincadeira nome="Apreciar um bom churrasco" preco="268,35" imagem="/churras.jpg" />
+                    <Brincadeira nome="Café da manhã no hotel pós noite de núpcias" preco="226,78" imagem="/cafemanha.jpg" />
+                    <Brincadeira nome="Café da manhã servido no quarto" preco="28,00" imagem="/cafemanha1.jpg" />
                 </div>
                 <Footer />
 
