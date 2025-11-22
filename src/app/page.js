@@ -31,7 +31,7 @@ export default function Home() {
               Olá é muito bom ter você conosco!
             </h1>
             <p className={`${poppins.className} text-[#141414] font-medium text-center m-6 mt-2 mb-2 leading-8`}>Estamos muito felizes por dividir este capítulo tão especial da nossa história com você! Criamos este espaço com muito carinho para que você possa fazer parte deste momento único. Cada gesto seu, cada mensagem e cada presença tornam esse dia ainda mais especial. Seja bem-vindo(a) ao nosso cantinho de celebração!</p>
-            <a href={"/pagCerto"} target="_blank"><Button /></a>
+            <a href={"/ListaCasamento"} target="_blank"><Button /></a>
             
           </div>
 
