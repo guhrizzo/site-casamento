@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Casamento Isabelle & Otávio",
-  description: "Isabelle & Otávio - Site para o Casamento",
+  title: "Casamento Otávio & Isabelle",
+  description: "Otávio Isabelle & - Site para o Casamento",
 };
 
 export default function RootLayout({ children }) {
