@@ -19,8 +19,8 @@ export default function listacasamento() {
                 <h1 className="text-3xl font-bold uppercase text-orange-300">Lista de Presente</h1>
                 <h2 className="text-2xl uppercase text-orange-300">Pro Casamento</h2>
             </div>
-            <div className="bg-[#f0e4cb] w-screen min-h-[125dvh] lg:min-h-[60dvh]">
-                <div className="w-[91vw] bg-[#f2f2f2] min-h-[50vh] absolute m-6 mt-[450px] right-0 rounded-2xl shadow-xl p-6 lg:w-[60vw] lg:m-12">
+            <div className="bg-[#f0e4cb] w-screen min-h-[120dvh] lg:min-h-[60dvh]">
+                <div className="w-[91vw] bg-[#f2f2f2] min-h-[50vh] absolute m-5 mt-[450px] right-0 rounded-2xl shadow-xl p-6 lg:w-[60vw] lg:m-12">
                     <Input
                         label="Nome do Casal"
                         placeholder="Digite o nome..."
@@ -37,7 +37,7 @@ export default function listacasamento() {
                         <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z" />
                     </svg></button>
                 </div>
-                <div className="w-[90vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-5 flex items-center justify-center lg:m-12 shadow-lg flex-col lg:w-[30dvw]">
+                <div className="w-[91vw] min-h-[50vh] bg-[#f2f2f2] rounded-2xl absolute m-5 flex items-center justify-center lg:m-12 shadow-lg flex-col lg:w-[30dvw]">
                     <Image src={"/rings.png"} width={70} height={70} className="absolute top-4" />
                     <p className="text-black text-3xl mt-2 font-medium">Isabelle Rizzatto</p>
                     <p className="text-black text-3xl">&</p>
