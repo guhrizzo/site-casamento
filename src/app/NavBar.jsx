@@ -20,8 +20,9 @@ export default function Navbar() {
                 }`}
         >
             <nav className="flex items-center justify-around py-3">
+                
                 <Image
-                    src="/casamentologo.png"
+                    src="/casamentoLogo.png"
                     width={90}
                     height={100}
                     className="scale-130"
