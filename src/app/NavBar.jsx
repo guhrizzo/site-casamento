@@ -29,7 +29,8 @@ export default function Navbar() {
                 />
 
                 <ul className="text-[#292929] flex gap-8 font-medium">
-                    <li className="
+                    <a href="/ListaCasamento" target="_blank">
+                     <li className="
   cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right
   after:content-[''] after:absolute after:left-0 after:-bottom-0.5
   after:w-[80%] after:h-0.5 after:bg-[#292929]
@@ -38,6 +39,8 @@ export default function Navbar() {
 ">
                         Enviar Presentes
                     </li>
+                    </a>
+                   
 
                     <li className="
   cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right

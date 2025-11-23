@@ -33,7 +33,6 @@ export default function ContadorAnoNovo() {
   const box =
     "flex flex-col items-center bg-white/10 backdrop-blur-xl px-6 py-4 rounded-xl shadow-lg border border-white/20";
 
-  // --- SE JÁ CHEGOU O DIA ---
   if (finished) {
     return (
       <div className="w-full flex flex-col items-center mt-10 text-white">
@@ -45,29 +44,29 @@ export default function ContadorAnoNovo() {
   }
 
   return (
-    <div className="w-full flex flex-col items-center mt-10">
-      <h2 className="text-4xl font-bold text-white mb-6 tracking-widest">
-        CONTAGEM PARA O GRANDE DIA
+    <div className="lg:w-full flex flex-col items-center mt-10 bg-[#ffffff15] p-4 rounded-2xl backdrop-blur-2xl w-[92dvw]">
+      <h2 className="lg:text-xl font-bold text-white mb-6  ">
+        Contagem regressiva para o casamento!
       </h2>
 
-      <div className="flex gap-4 text-white text-center">
+      <div className="flex gap-4 text-white text-center ">
         <div className={`${box} `}>
-          <p className="text-5xl font-bold">{timeLeft.days}</p>
+          <p className="lg:text-5xl font-bold">{timeLeft.days}</p>
           <span className="uppercase text-sm opacity-80">Dias</span>
         </div>
 
         <div className={`${box} `}>
-          <p className="text-5xl font-bold">{timeLeft.hours}</p>
+          <p className="lg:text-5xl font-bold">{timeLeft.hours}</p>
           <span className="uppercase text-sm opacity-80">Horas</span>
         </div>
 
         <div className={`${box} `}>
-          <p className="text-5xl font-bold">{timeLeft.minutes}</p>
+          <p className="lg:text-5xl font-bold">{timeLeft.minutes}</p>
           <span className="uppercase text-sm opacity-80">Min</span>
         </div>
 
         <div className={`${box} `}>
-          <p className="text-5xl font-bold">{timeLeft.seconds}</p>
+          <p className="lg:text-5xl font-bold">{timeLeft.seconds}</p>
           <span className="uppercase text-sm opacity-80">Seg</span>
         </div>
       </div>

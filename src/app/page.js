@@ -11,11 +11,14 @@ const poppins = Poppins({
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <main className="flex min-h-screen w-full flex-col bg-white justify-center items-center bg-[url('/elegant-wedding-couple.png')] bg-cover bg-center">
-        <div>
+      <main className="flex min-h-screen w-full flex-col justify-center items-center 
+bg-[linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45)),url('/elegant-wedding-couple.png')] 
+bg-cover bg-center">
+
+        <div className={`${poppins.className}`}>
           <ContadorNovo />
         </div>
-        
+
 
       </main>
     </div>

@@ -41,7 +41,7 @@ export default function listacasamento() {
     return (
         <div className={`${poppins.className} relative overflow-x-hidden`}>
             {/* TOPO */}
-            <Navbar />
+            
             
             {/* LISTA DE PRESENTES */}
             <div className="bg-[#f2f2f2] w-full h-auto lg:mt-[10vh] mt-[14dvh]">
