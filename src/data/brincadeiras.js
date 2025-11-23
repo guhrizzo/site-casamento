@@ -13,7 +13,7 @@ export const BRINCADEIRAS = [
   { nome: "Conjunto de sabres de luzes para o casal", preco: "667,00", imagem: "/sabres-luz.jpg" },
   { nome: "Cota para pagar o prejuizo da viagem", preco: "134,00", imagem: "/viagem.jpg" },
   { nome: "Crédito para os noivos ligarem pros familiares", preco: "141,00", imagem: "/creditocelular.jpg" },
-  { nome: "Almofada anti ronco (não funciona)", preco: "130,00", imagem: "/antironco.jpg" },
+  { nome: "Almofada anti ronco (não funciona)", preco: "115,00", imagem: "/antironco.jpg" },
   { nome: "Deus te iluminou e você dar uma boa ajuda na nossa lua de mel", preco: "3328,00", imagem: "/paisagem.jpg" },
   { nome: "Garantir que a noiva faça um jantar delicioso para o noivo", preco: "80,00", imagem: "/pizza.jpg" },
   { nome: "Kit de primeiros socorros para a noiva", preco: "159,00", imagem: "/itensfeminos.jpg" },
