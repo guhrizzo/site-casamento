@@ -44,7 +44,7 @@ export default function listacasamento() {
             
             
             {/* LISTA DE PRESENTES */}
-            <div className="bg-[#f2f2f2] w-full h-auto lg:mt-[11vh] mt-[14dvh]">
+            <div className="bg-[#f2f2f2] w-full h-auto lg:mt-[11vh] mt-[18dvh]">
                 <div className="lg:flex lg:justify-between lg:items-center ">
                     <p className="text-black text-3xl font-bold p-8 pt-6 pb-6 lg:text-4xl lg:p-12">Envie um presente para os noivos!</p>
 
