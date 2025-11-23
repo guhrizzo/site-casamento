@@ -16,10 +16,10 @@ export default function Navbar() {
 
     return (
         <div
-            className={`w-screen min-h-[10vh] fixed top-0 z-50  transition-all duration-300  ${scrolled ? "bg-amber-100 border-b-2 border-[#ffeb9a70]" : "bg-gray-100"
+            className={`w-screen lg:min-h-[10vh] fixed top-0 z-50  transition-all duration-300  ${scrolled ? "bg-amber-100 border-b-2 border-[#ffeb9a70]" : "bg-gray-100"
                 }`}
         >
-            <nav className="flex items-center justify-around py-3">
+            <nav className="flex items-center lg:justify-around py-3 justify-between px-6 lg:px-0">
                 
                 <Image
                     src="/casamentoLogo.png"
@@ -28,12 +28,16 @@ export default function Navbar() {
                     className="scale-130"
                     alt="Logo"
                 />
-
+                <div className="flex flex-col gap-2 ml-44">
+                    <div className="bg-black w-10 rounded-full h-[3px]"></div>
+                    <div className="bg-black w-10 rounded-full h-[3px]"></div>
+                    <div className="bg-black w-10 rounded-full h-[3px]"></div>
+                </div>
                 <ul className="text-[#292929] flex gap-8 font-medium">
                     <a href="/ListaCasamento" target="_blank">
                      <li className="
-  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right
-  after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right hidden
+  after:content-[''] after:absolute after:left-0 after:-bottom-0.5 lg:block
   after:w-[80%] after:h-0.5 after:bg-[#292929]
   after:origin-left after:scale-x-0 hover:after:scale-x-100
   after:transition-all after:duration-400
@@ -44,8 +48,8 @@ export default function Navbar() {
                    
 
                     <li className="
-  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right
-  after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right hidden
+  after:content-[''] after:absolute after:left-0 after:-bottom-0.5 lg:block
   after:w-[80%] after:h-0.5 after:bg-[#292929]
   after:origin-left after:scale-x-0 hover:after:scale-x-100
   after:transition-all after:duration-400
@@ -53,8 +57,8 @@ export default function Navbar() {
                         Enviar Mensagem
                     </li>
                     <li className="
-  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right
-  after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+  cursor-pointer opacity-60 hover:opacity-100 relative transition-all origin-right hidden
+  after:content-[''] after:absolute after:left-0 after:-bottom-0.5 lg:block
   after:w-[80%] after:h-0.5 after:bg-[#292929]
   after:origin-left after:scale-x-0 hover:after:scale-x-100
   after:transition-all after:duration-400
