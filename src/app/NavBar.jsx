@@ -34,22 +34,24 @@ export default function Navbar() {
 
     return (
         <div
-            className={`w-screen lg:min-h-[10vh] fixed top-0 z-50 transition-all duration-300 ${
-                scrolled
-                    ? "bg-amber-100 border-b-2 border-[#ffeb9a70]"
-                    : "bg-gray-100"
-            }`}
+            className={`w-screen lg:min-h-[10vh] fixed top-0 z-50 transition-all duration-300 ${scrolled
+                ? "bg-amber-100 border-b-2 border-[#ffeb9a70]"
+                : "bg-gray-100"
+                }`}
         >
             <nav className="flex items-center lg:justify-around py-3 justify-between px-6 lg:px-0">
 
                 {/* LOGO */}
-                <Image
-                    src="/casamentoLogo.png"
-                    width={90}
-                    height={100}
-                    className="scale-130"
-                    alt="Logo"
-                />
+                <a href="/" className="cursor-pointer">
+                    <Image
+                        src="/casamentoLogo.png"
+                        width={90}
+                        height={100}
+                        className="scale-130"
+                        alt="Logo"
+                    />
+                </a>
+
 
                 {/* BOTÃO HAMBÚRGUER - MOBILE */}
                 <button
@@ -67,25 +69,58 @@ export default function Navbar() {
                     <a
                         href="/ListaCasamento"
                         onClick={(e) => handleNavClick(e, "/ListaCasamento")}
-                        className={pathname === "/ListaCasamento" ? "opacity-100 font-semibold" : "opacity-60"}
+                        className={`relative transition-all 
+        ${pathname === "/ListaCasamento" ? "opacity-100 font-semibold" : "opacity-60"}
+        after:content-[''] after:absolute after:left-0 after:-bottom-1 
+        after:h-0.5 after:bg-[#292929] 
+        after:transition-all after:duration-400
+        after:w-full 
+        after:scale-x-0 
+        after:origin-left
+        origin-right
+        ${pathname === "/ListaCasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
+    `}
                     >
-                        <li>Enviar Presentes</li>
+                        Enviar Presentes
                     </a>
+
+
+
 
                     <a
                         href="/msgNoivos"
                         onClick={(e) => handleNavClick(e, "/msgNoivos")}
-                        className={pathname === "/msgNoivos" ? "opacity-100 font-semibold" : "opacity-60"}
+                        className={`relative transition-all 
+        ${pathname === "/msgNoivos" ? "opacity-100 font-semibold" : "opacity-60"}
+        after:content-[''] after:absolute after:left-0 after:-bottom-1 
+        after:h-0.5 after:bg-[#292929] 
+        after:transition-all after:duration-400
+        after:w-full 
+        after:scale-x-0 
+        after:origin-left
+        origin-right
+        ${pathname === "/Listacasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
+    `}
                     >
-                        <li>Enviar Mensagem</li>
+                        Enviar Mensagem
                     </a>
 
                     <a
                         href="/confirmapresenca"
                         onClick={(e) => handleNavClick(e, "/confirmapresenca")}
-                        className={pathname === "/confirmapresenca" ? "opacity-100 font-semibold" : "opacity-60"}
+                        className={`relative transition-all 
+        ${pathname === "/confirmapresenca" ? "opacity-100 font-semibold" : "opacity-60"}
+        after:content-[''] after:absolute after:left-0 after:-bottom-1 
+        after:h-0.5 after:bg-[#292929] 
+        after:transition-all after:duration-400
+        after:w-full 
+        after:scale-x-0 
+        after:origin-left
+        origin-right
+        ${pathname === "/ListaCasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
+    `}
                     >
-                        <li>Confirmar Presença</li>
+                        Confirmar Presença
                     </a>
 
                 </ul>
