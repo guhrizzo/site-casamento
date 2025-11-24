@@ -53,7 +53,7 @@ export default function ConfirmarPresenca() {
           <p className="text-4xl font-semibold">Isabelle Rizzatto</p>
 
           <div className="mt-6 text-center">
-            <p className="text-lg">Você foi convidado(a) para um momento único!</p>
+            <p className="lg:text-[18px] text-[16px]">Você foi convidado(a) para um momento único!</p>
             <div className="w-[380px] h-0.5 bg-gray-300 my-3 mx-auto" />
             <p className="text-xl font-bold">Confirme sua presença ❤️</p>
           </div>
