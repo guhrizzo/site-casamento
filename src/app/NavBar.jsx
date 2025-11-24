@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [openGift, setOpenGift] = useState(false);
+
 
     const pathname = usePathname();
 
@@ -64,82 +66,106 @@ export default function Navbar() {
                 </button>
 
                 {/* MENU DESKTOP */}
-                <ul className="text-[#292929] gap-8 font-medium hidden lg:flex">
+                <ul className="text-[#292929] gap-8 font-medium hidden lg:flex items-center">
 
-                    <a
-                        href="/ListaCasamento"
-                        onClick={(e) => handleNavClick(e, "/ListaCasamento")}
-                        className={`relative transition-all 
-        ${pathname === "/ListaCasamento" ? "opacity-100 font-semibold" : "opacity-60"}
-        after:content-[''] after:absolute after:left-0 after:-bottom-1 
-        after:h-0.5 after:bg-[#292929] 
-        after:transition-all after:duration-400
-        after:w-full 
-        after:scale-x-0 
-        after:origin-left
-        origin-right
-        ${pathname === "/ListaCasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
-    `}
-                    >
-                        Enviar Presentes
-                    </a>
+                    {/* DROPDOWN - ENVIAR PRESENTES */}
+                    <div className="relative group">
+                        <button
+                            className={`relative transition-all flex items-center gap-1
+                ${pathname.startsWith("/ListaCasamento") ? "opacity-100 font-semibold" : "opacity-60"}
+                hover:opacity-100
+            `}
+                        >
+                            Enviar Presentes
+                            <span className="text-sm mt-1">▼</span>
+                        </button>
+
+                        {/* DROPDOWN MENU */}
+                        <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible
+                        group-hover:opacity-100 group-hover:visible transition-all p-2 z-50">
+
+                            <a
+                                href="/ListaCasamento/online"
+                                className="block px-3 py-2 hover:bg-gray-100 rounded-md"
+                            >
+                                Presente Online
+                            </a>
+
+                            <a
+                                href="/ListaCasamento/fisico"
+                                className="block px-3 py-2 hover:bg-gray-100 rounded-md"
+                            >
+                                Presente Físico
+                            </a>
+                        </div>
+                    </div>
 
 
-
-
+                    {/* ENVIAR MENSAGEM */}
                     <a
                         href="/msgNoivos"
                         onClick={(e) => handleNavClick(e, "/msgNoivos")}
                         className={`relative transition-all 
         ${pathname === "/msgNoivos" ? "opacity-100 font-semibold" : "opacity-60"}
-        after:content-[''] after:absolute after:left-0 after:-bottom-1 
-        after:h-0.5 after:bg-[#292929] 
-        after:transition-all after:duration-400
-        after:w-full 
-        after:scale-x-0 
-        after:origin-left
-        origin-right
-        ${pathname === "/msgNoivos" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
-    `}
+        hover:opacity-100`}
                     >
                         Enviar Mensagem
                     </a>
 
+                    {/* CONFIRMAR PRESENÇA */}
                     <a
                         href="/confirmapresenca"
                         onClick={(e) => handleNavClick(e, "/confirmapresenca")}
                         className={`relative transition-all 
         ${pathname === "/confirmapresenca" ? "opacity-100 font-semibold" : "opacity-60"}
-        after:content-[''] after:absolute after:left-0 after:-bottom-1 
-        after:h-0.5 after:bg-[#292929] 
-        after:transition-all after:duration-400
-        after:w-full 
-        after:scale-x-0 
-        after:origin-left
-        origin-right
-        ${pathname === "/confirmapresenca" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
-    `}
+        hover:opacity-100`}
                     >
                         Confirmar Presença
                     </a>
-
                 </ul>
+
             </nav>
 
             {/* MENU MOBILE */}
             <div
-                className={`lg:hidden flex flex-col gap-6 bg-amber-50 text-[#292929]
-                p-6 shadow-md transition-all duration-300
-                ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
-            `}
+                className={`lg:hidden flex flex-col gap-4 bg-amber-50 text-[#292929]
+        p-6 shadow-md transition-all duration-300
+        ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+    `}
             >
-                <a
-                    href="/ListaCasamento"
-                    onClick={(e) => handleNavClick(e, "/ListaCasamento")}
-                    className={pathname === "/ListaCasamento" ? "opacity-100 font-semibold" : "opacity-70"}
+
+                {/* DROPDOWN MOBILE */}
+                <button
+                    onClick={() => setOpenGift(!openGift)}
+                    className="flex justify-between items-center opacity-80 text-left"
                 >
                     Enviar Presentes
-                </a>
+                    <span>{openGift ? "▲" : "▼"}</span>
+                </button>
+
+                {/* SUBMENU MOBILE */}
+                <div
+                    className={`flex flex-col pl-4 gap-2 transition-all overflow-hidden
+            ${openGift ? "max-h-40" : "max-h-0"}
+        `}
+                >
+                    <a
+                        href="/ListaCasamento/online"
+                        onClick={(e) => handleNavClick(e, "/ListaCasamento/online")}
+                        className="opacity-80"
+                    >
+                        Presente Online
+                    </a>
+
+                    <a
+                        href="/ListaCasamento/fisico"
+                        onClick={(e) => handleNavClick(e, "/ListaCasamento/fisico")}
+                        className="opacity-80"
+                    >
+                        Presente Físico
+                    </a>
+                </div>
+
 
                 <a
                     href="/msgNoivos"
@@ -157,6 +183,7 @@ export default function Navbar() {
                     Confirmar Presença
                 </a>
             </div>
+
         </div>
     );
 }

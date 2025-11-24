@@ -23,5 +23,5 @@ export const BRINCADEIRAS = [
   { nome: "Desodorante para o noivo não esquecer de passar", preco: "28,00", imagem: "/desodorante.png" },
   { nome: "Apreciar um bom churrasco", preco: "268,35", imagem: "/churras.jpg" },
   { nome: "Café da manhã no hotel pós noite de núpcias", preco: "226,78", imagem: "/cafemanha.jpg" },
-  { nome: "Café da manhã servido no quarto", preco: "28,00", imagem: "/cafemanha1.jpg" },
+  { nome: "Café da manhã servido no quarto", preco: "58,00", imagem: "/cafemanha1.jpg" },
 ];

@@ -52,7 +52,7 @@ export default function ListaFisicos() {
 
                 {/* RECOMENDAÇÃO – CARD CLICÁVEL */}
                 <div
-                    className=" mb-8 w-full max-w-[500px] ml-6"
+                    className=" mb-8 w-full max-w-[500px] lg:ml-6 scale-[89%] lg:scale-100 "
                     onClick={() => {
                         navigator.clipboard.writeText("R. Luís Spirandeli, 120 - Jardim America - Jaú/SP · CEP 17210-720");
                         alert("Endereço copiado!");
