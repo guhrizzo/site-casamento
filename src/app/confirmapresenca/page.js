@@ -42,7 +42,7 @@ export default function ConfirmarPresenca() {
   }
 
   return (
-    <div className="bg-[#f0e4cb] w-screen min-h-[125vh] flex justify-center py-20 font-poppins">
+    <div className="bg-[#f0e4cb] w-screen min-h-[145vh] flex justify-center py-20 font-poppins">
       <div className="flex flex-col lg:flex-row gap-12 w-[92vw] absolute lg:top-[20vh] top-[25vh] ">
 
         {/* CARD DO CASAL */}
