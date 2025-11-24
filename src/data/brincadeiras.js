@@ -24,4 +24,8 @@ export const BRINCADEIRAS = [
   { nome: "Apreciar um bom churrasco", preco: "268,35", imagem: "/churras.jpg" },
   { nome: "Café da manhã no hotel pós noite de núpcias", preco: "226,78", imagem: "/cafemanha.jpg" },
   { nome: "Café da manhã servido no quarto", preco: "58,00", imagem: "/cafemanha1.jpg" },
+  { nome: "1 hora de paciência da noiva", preco: "99,00", imagem: "/mulhermeditando.jpg" },
+  { nome: "Curso intensivo: como intender as indiretas da noiva", preco: "299,00", imagem: "/professorlousa.jpg" },
+  { nome: "Pote de calmante emocional para crises", preco: "76,00", imagem: "/Rivotril.jpg" },
+  { nome: "Spray anti ciúmes", preco: "76,00", imagem: "/spray.jpeg" },
 ];

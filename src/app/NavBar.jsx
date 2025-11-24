@@ -85,14 +85,14 @@ export default function Navbar() {
                         group-hover:opacity-100 group-hover:visible transition-all p-2 z-50">
 
                             <a
-                                href="/ListaCasamento/online"
+                                href="/ListaCasamento"
                                 className="block px-3 py-2 hover:bg-gray-100 rounded-md"
                             >
                                 Presente Online
                             </a>
 
                             <a
-                                href="/ListaCasamento/fisico"
+                                href="/presenteFisicos"
                                 className="block px-3 py-2 hover:bg-gray-100 rounded-md"
                             >
                                 Presente Físico
@@ -150,16 +150,16 @@ export default function Navbar() {
         `}
                 >
                     <a
-                        href="/ListaCasamento/online"
-                        onClick={(e) => handleNavClick(e, "/ListaCasamento/online")}
+                        href="/ListaCasamento"
+                        onClick={(e) => handleNavClick(e, "/ListaCasamento/listaCasamento")}
                         className="opacity-80"
                     >
                         Presente Online
                     </a>
 
                     <a
-                        href="/ListaCasamento/fisico"
-                        onClick={(e) => handleNavClick(e, "/ListaCasamento/fisico")}
+                        href="/presenteFisicos"
+                        onClick={(e) => handleNavClick(e, "/ListaCasamento/presenteFisicos")}
                         className="opacity-80"
                     >
                         Presente Físico
