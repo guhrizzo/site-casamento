@@ -99,7 +99,7 @@ export default function Navbar() {
         after:scale-x-0 
         after:origin-left
         origin-right
-        ${pathname === "/Listacasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
+        ${pathname === "/msgNoivos" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
     `}
                     >
                         Enviar Mensagem
@@ -117,7 +117,7 @@ export default function Navbar() {
         after:scale-x-0 
         after:origin-left
         origin-right
-        ${pathname === "/ListaCasamento" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
+        ${pathname === "/confirmapresenca" ? "after:scale-x-100" : "hover:after:scale-x-100 hover:opacity-100"}
     `}
                     >
                         Confirmar Presença
