@@ -50,11 +50,11 @@ export const PRESENTES_FISICOS = [
       imagem: "/sofa.jpg",
       link: "https://www.amazon.com.br/Retr%C3%A1til-Reclin%C3%A1vel-Lugares-Veludo-Coliseu/dp/B0F497SC79/ref=asc_df_B0F497SC79?mcid=b35a7c948b3d38a58e9cd29f3e3ff84c&tag=googleshopp00-20&linkCode=df0&hvadid=724150830217&hvpos=&hvnetw=g&hvrand=9501368524284052869&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2421703891638&psc=1&language=pt_BR&gad_source=1"
    },
-   {
-      nome: "Cama Box Com Baú Queen + Colchão De Molas - Anjos - Classic Superlastic 158cm",
-      imagem: "/cama.jpg",
-      link: "https://www.amazon.com.br/Cama-Box-Queen-Colch%C3%A3o-Molas/dp/B0894KH3NG/ref=asc_df_B0894KH3NG?mcid=2c5b24e84ecc3b75b4821e3868d15912&tag=googleshopp00-20&linkCode=df0&hvadid=709968340954&hvpos=&hvnetw=g&hvrand=12643972285502061028&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2060669609479&psc=1&language=pt_BR&gad_source=1"
-   },
+   //{
+      //nome: "Cama Box Com Baú Queen + Colchão De Molas - Anjos - Classic Superlastic 158cm",
+      //imagem: "/cama.jpg",
+      //link: "https://www.amazon.com.br/Cama-Box-Queen-Colch%C3%A3o-Molas/dp/B0894KH3NG/ref=asc_df_B0894KH3NG?mcid=2c5b24e84ecc3b75b4821e3868d15912&tag=googleshopp00-20&linkCode=df0&hvadid=709968340954&hvpos=&hvnetw=g&hvrand=12643972285502061028&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2060669609479&psc=1&language=pt_BR&gad_source=1"
+   //},
    {
       nome: "Painel Tv 60 polegadas c/Prateleiras de Vidro Nairóbi Multimóveis Grafite",
       imagem: "/suportetv.jpg",
