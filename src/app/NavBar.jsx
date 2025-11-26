@@ -71,7 +71,7 @@ export default function Navbar() {
                     {/* DROPDOWN - ENVIAR PRESENTES */}
                     <div className="relative group">
                         <button
-                            className={`relative transition-all flex items-center gap-1
+                            className={`relative transition-all cursor-pointer flex items-center gap-1
                 ${pathname.startsWith("/ListaCasamento") ? "opacity-100 font-semibold" : "opacity-60"}
                 hover:opacity-100
             `}

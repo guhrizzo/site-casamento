@@ -45,11 +45,11 @@ export default function ContadorAnoNovo() {
 
   return (
     <div className="lg:w-full flex flex-col items-center mt-10 bg-[#ffffff15] p-4 rounded-2xl backdrop-blur-2xl w-[92dvw]">
-      <h2 className="lg:text-xl font-bold text-white mb-6  ">
+      <h2 className="lg:text-xl font-bold text-white lg:mb-6  mb-4">
         Contagem regressiva para o casamento!
       </h2>
 
-      <div className="flex gap-4 text-white text-center ">
+      <div className="flex gap-4 text-white text-center lg:scale-100 scale-95">
         <div className={`${box} `}>
           <p className="lg:text-5xl font-bold">{timeLeft.days}</p>
           <span className="uppercase text-sm opacity-80">Dias</span>
