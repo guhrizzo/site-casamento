@@ -55,8 +55,11 @@ function PresenteCard({ nome, imagem, count, link, onClick }) {
             <p className="text-lg font-semibold mt-3 text-black">{nome}</p>
 
             <p className="text-sm text-gray-600 mt-1">
-                Já enviado <span className="font-bold text-[#ff7b00]">{count}</span> vezes
+                Já enviado{" "}
+                <span className="font-bold text-[#ff7b00]">{count}</span>{" "}
+                {count === 1 ? "vez" : "vezes"}
             </p>
+
 
             <div className="mt-auto">
                 <button
