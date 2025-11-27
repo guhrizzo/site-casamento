@@ -1,3 +1,5 @@
+// ListaFisicos CORRIGIDA COMPLETA COM SLUGIFY E FIRESTORE FUNCIONANDO
+
 "use client";
 
 import { Poppins } from "next/font/google";
@@ -27,33 +29,35 @@ const poppins = Poppins({
     weight: ["300", "400", "500", "600", "700"],
 });
 
+// 🔧 Função segura para gerar IDs de documentos
+function slugify(text) {
+    return text
+        .normalize("NFD")
+        .replace(/[^a-zA-Z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, "")
+        .toLowerCase();
+}
+
 // CARD COMPONENT
 function PresenteCard({ nome, imagem, count, link, onClick }) {
     return (
         <div className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition flex flex-col h-full">
-
-            {/* IMAGEM (abre modal ao clicar) */}
-            <div >
+            <div>
                 <Image
                     src={imagem}
                     alt={nome}
-
                     width={300}
                     height={300}
                     className="rounded-lg w-full h-[200px] object-cover"
                 />
             </div>
 
-            {/* TÍTULO */}
             <p className="text-lg font-semibold mt-3 text-black">{nome}</p>
 
-            {/* CONTADOR */}
             <p className="text-sm text-gray-600 mt-1">
-                Já enviado{" "}
-                <span className="font-bold text-[#ff7b00]">{count}</span> vezes
+                Já enviado <span className="font-bold text-[#ff7b00]">{count}</span> vezes
             </p>
 
-            {/* BOTÃO SEMPRE NA PARTE DE BAIXO */}
             <div className="mt-auto">
                 <button
                     onClick={onClick}
@@ -66,40 +70,54 @@ function PresenteCard({ nome, imagem, count, link, onClick }) {
     );
 }
 
-
-
 export default function ListaFisicos() {
     const [lista] = useState(PRESENTES_FISICOS);
     const [modalOpen, setModalOpen] = useState(false);
     const [presenteSelecionado, setPresenteSelecionado] = useState(null);
     const [enviados, setEnviados] = useState({});
+    const [meusPresentes, setMeusPresentes] = useState({});
 
-    const userId = "user_temp_id"; // Trocar pelo AUTH futuramente
+    const userId = "user_temp_id";
 
-    // Carregar contadores
+    // 🔥 Carregar contadores corretos com slugify
     useEffect(() => {
         async function carregar() {
             const resultado = {};
+            const enviadosUsuario = {};
 
             for (let item of lista) {
-                const ref = doc(db, "presentes_enviados", item.nome);
+                const docId = slugify(item.nome);
+                const ref = doc(db, "presentes_enviados", docId);
                 const snap = await getDoc(ref);
 
-                resultado[item.nome] = snap.exists() ? snap.data().count : 0;
+                if (snap.exists()) {
+                    const data = snap.data();
+                    resultado[item.nome] = data.count || 0;
+                    enviadosUsuario[item.nome] = data.usuarios?.includes(userId) || false;
+                } else {
+                    resultado[item.nome] = 0;
+                    enviadosUsuario[item.nome] = false;
+                }
             }
 
             setEnviados(resultado);
+            setMeusPresentes(enviadosUsuario);
         }
-
         carregar();
     }, [lista]);
 
-    // Confirmar envio
+    // 🔥 Confirmar envio
     async function confirmarEnvio() {
         if (!presenteSelecionado) return;
 
         const nome = presenteSelecionado.nome;
-        const ref = doc(db, "presentes_enviados", nome);
+        const docId = slugify(nome);
+        const ref = doc(db, "presentes_enviados", docId);
+
+        const usuarioRef = doc(db, "usuarios", userId);
+        await setDoc(usuarioRef, { enviados: [] }, { merge: true });
+        await updateDoc(usuarioRef, { enviados: arrayUnion(nome) });
+
         const snap = await getDoc(ref);
 
         try {
@@ -115,33 +133,28 @@ export default function ListaFisicos() {
                 });
             }
 
-            // ATUALIZA O ESTADO LOCAL IMEDIATAMENTE
-            setEnviados((prev) => ({
-                ...prev,
-                [nome]: (prev[nome] || 0) + 1,
-            }));
+            setEnviados((prev) => ({ ...prev, [nome]: (prev[nome] || 0) + 1 }));
+            setMeusPresentes((prev) => ({ ...prev, [nome]: true }));
 
             setModalOpen(false);
-
-            // ABRIR EM NOVA ABA SEM SAIR DA PÁGINA
-            if (presenteSelecionado.link) {
-                window.open(presenteSelecionado.link, "_blank");
-            }
+            if (presenteSelecionado.link) window.open(presenteSelecionado.link, "_blank");
         } catch (e) {
             console.error("Erro ao atualizar:", e);
             alert("Houve um erro ao registrar seu envio.");
         }
     }
 
-
-
-    // Retirar envio
+    // 🔥 Retirar envio
     async function retirarResposta() {
         if (!presenteSelecionado) return;
 
         const nome = presenteSelecionado.nome;
-        const ref = doc(db, "presentes_enviados", nome);
+        const docId = slugify(nome);
+        const ref = doc(db, "presentes_enviados", docId);
         const snap = await getDoc(ref);
+
+        const usuarioRef = doc(db, "usuarios", userId);
+        await updateDoc(usuarioRef, { enviados: arrayRemove(nome) });
 
         if (snap.exists() && snap.data().count > 0) {
             await updateDoc(ref, {
@@ -149,10 +162,8 @@ export default function ListaFisicos() {
                 usuarios: arrayRemove(userId),
             });
 
-            setEnviados((prev) => ({
-                ...prev,
-                [nome]: Math.max((prev[nome] || 1) - 1, 0),
-            }));
+            setEnviados((prev) => ({ ...prev, [nome]: Math.max((prev[nome] || 1) - 1, 0) }));
+            setMeusPresentes((prev) => ({ ...prev, [nome]: false }));
         }
 
         setModalOpen(false);
@@ -162,13 +173,11 @@ export default function ListaFisicos() {
         <div className={`${poppins.className} relative overflow-x-hidden`}>
             <Navbar />
 
-            {/* TÍTULO */}
             <div className="bg-[#f2f2f2] w-full h-auto lg:mt-[11vh] mt-[18dvh]">
                 <p className="text-black text-3xl font-bold p-8 pt-6 pb-2 lg:text-4xl lg:p-8">
                     Escolha um presente físico para os noivos!
                 </p>
 
-                {/* RECOMENDAÇÃO */}
                 <div
                     className="mb-8 w-full max-w-[500px] lg:ml-6 scale-[89%] lg:scale-100"
                     onClick={() => {
@@ -196,9 +205,7 @@ export default function ListaFisicos() {
                         </svg>
 
                         <div>
-                            <p className="text-lg text-black font-semibold">
-                                Recomendação de envio
-                            </p>
+                            <p className="text-lg text-black font-semibold">Recomendação de envio</p>
                             <p className="text-gray-600 -mt-1">Toque para copiar o endereço:</p>
                             <p className="text-[#ff7b00] font-bold text-lg">
                                 R. Luís Spirandeli, 120 - Jardim America - Jaú/SP · CEP 17210-720
@@ -221,7 +228,6 @@ export default function ListaFisicos() {
                                 setModalOpen(true);
                             }}
                         />
-
                     ))}
                 </div>
 
@@ -237,10 +243,7 @@ export default function ListaFisicos() {
                 <div className="fixed inset-0 bg-black/40" />
 
                 <div className="bg-white rounded-xl p-6 w-[90%] max-w-md shadow-lg relative z-10">
-                    <h2 className="text-xl font-semibold text-black">
-                        Você enviará este presente?
-                    </h2>
-
+                    <h2 className="text-xl font-semibold text-black">Você enviará este presente?</h2>
                     <p className="text-gray-700 mt-2">
                         Sua resposta será registrada!
                         <br />
@@ -253,14 +256,14 @@ export default function ListaFisicos() {
 
                     <div className="flex gap-4 mt-6">
                         <button
-                            className="flex-1 cursor-pointer hover:bg-green-700 transition-all delay-75 ease-in-out duration-150 bg-green-600 text-white p-2 rounded-lg"
+                            className="flex-1 cursor-pointer hover:bg-green-700 transition-all bg-green-600 text-white p-2 rounded-lg"
                             onClick={confirmarEnvio}
                         >
                             Confirmar
                         </button>
 
                         <button
-                            className="flex-1 bg-gray-300 text-black hover:bg-gray-400 delay-75 ease-in-out transition-all duration-150 cursor-pointer p-2 rounded-lg"
+                            className="flex-1 bg-gray-300 text-black hover:bg-gray-400 cursor-pointer p-2 rounded-lg"
                             onClick={retirarResposta}
                         >
                             Retirar resposta
