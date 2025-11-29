@@ -155,14 +155,5 @@ export const PRESENTES_FISICOS = [
       imagem: "/assadeira.webp",
       link: "https://www.mercadolivre.com.br/panela-de-presso-brinox-ceramic-life-pressure-42l-induco/p/MLB26582553?pdp_filters=item_id%3AMLB3427606351&from=gshop&matt_tool=13891073&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090193717&matt_ad_group_id=174661961644&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727914179467&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB26582553-product&matt_product_partition_id=2388009209946&matt_target_id=aud-1966917494853:pla-2388009209946&cq_src=google_ads&cq_cmp=22090193717&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=22090193717&gbraid=0AAAAAD93qcCNJFI98d_tLAdPdko0OIUAy&gclid=CjwKCAiA_orJBhBNEiwABkdmjCQL5KFsPUyMZMgauGoiVVnQ2rRarGw0wjsiNVQiSkmLQpbrLW_7oBoCZSAQAvD_BwE"
    },
-   {
-      nome: "Geladeira Brastemp French Door Frost Free A+++ 554l Inox Bro85ak - 127v",
-      imagem: "/geladeira.jpg",
-      link: "https://www.amazon.com.br/Geladeira-Brastemp-French-Frost-Bro85ak/dp/B0BHX77QJQ/ref=asc_df_B0BHX77QJQ?mcid=d800ce8aaf793175952eedba17afe96c&tag=googleshopp00-20&linkCode=df0&hvadid=709884460975&hvpos=&hvnetw=g&hvrand=494175090328503531&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2013537609067&psc=1&language=pt_BR&gad_source=4"
-   },
-   {
-      nome: "Micro-ondas Electrolux 23L Preto Efficient com Descongelamento Assistido (ME23P) - 127V",
-      imagem: "/microondas.jpeg",
-      link: "https://loja.electrolux.com.br/micro-ondas-electrolux-preto-23l-efficient-me23p/p?idsku=310119206&gad_source=1&gad_campaignid=22835827172&gbraid=0AAAAADpuC9vLrSM0R6SdQUZs2IsedYkFx&gclid=CjwKCAiA_orJBhBNEiwABkdmjGHJBN1AWBJDQ-QjNVakEyKbSV8kgzNejqsHqgtgj0G_rY-e6tcRoC0xkQAvD_BwE&gclsrc=aw.ds"
-   },
+
 ];
