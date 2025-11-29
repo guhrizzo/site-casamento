@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import ContadorNovo from "./contador";
 import Navbar from "./NavBar";
+import LocalDoCasamento from "./localCasamento/page";
 
 
 const poppins = Poppins({
@@ -21,7 +22,7 @@ bg-cover bg-center">
         </div>
         
       </main>
-      
+      <LocalDoCasamento />
     </div>
   );
 }

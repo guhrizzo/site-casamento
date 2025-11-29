@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import ListaMensagens from "./ListaMensagens";
+import Navbar from "../NavBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,6 +11,7 @@ const poppins = Poppins({
 export default function MensagensPage() {
   return (
     <div className={`${poppins.variable} text-black w-screen h-[200dvh] bg-gray-200`}>
+      <Navbar />
       <h1 className="text-3xl font-bold absolute text-black lg:top-[12vh] top-[19dvh] m-4">
         Mensagens Recebidas
       </h1>

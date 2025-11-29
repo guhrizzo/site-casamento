@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Input from "../input";
 import DropdownQtd from "../dropDown";
+import Navbar from "../NavBar";
 
 export default function ConfirmarPresenca() {
   const [nome, setNome] = useState("");
@@ -43,6 +44,7 @@ export default function ConfirmarPresenca() {
 
   return (
     <div className="bg-[#f0e4cb] w-screen min-h-[145vh] flex justify-center py-20 font-poppins">
+      <Navbar />
       <div className="flex flex-col lg:flex-row gap-12 w-[92vw] absolute lg:top-[20vh] top-[25vh] ">
 
         {/* CARD DO CASAL */}

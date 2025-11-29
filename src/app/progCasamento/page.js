@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Navbar from "../NavBar";
 
 export default function ProgCasamento() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center px-6 pt-28 pb-20 bg-[#F5F6F8] text-[#2e2e2e] lg:mt-0 mt-[9dvh]">
-
+    <Navbar />
       {/* TÍTULO */}
       <motion.h1
         className="md:text-4xl font-bold mb-8 text-center text-[36px]"

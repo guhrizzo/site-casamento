@@ -40,6 +40,7 @@ export default function listacasamento() {
 
     return (
         <div className={`${poppins.className} relative overflow-x-hidden`}>
+            <Navbar />
             {/* TOPO */}
             
             
