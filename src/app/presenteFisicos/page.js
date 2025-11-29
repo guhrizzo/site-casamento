@@ -1,4 +1,4 @@
-// ListaFisicos CORRIGIDA COMPLETA COM SLUGIFY E FIRESTORE FUNCIONANDO
+// ListaFisicos CORRIGIDA COMPLETA COM SLUGIFY, FIRESTORE E DEVICE-ID
 
 "use client";
 
@@ -22,7 +22,7 @@ import {
 } from "firebase/firestore";
 
 // PRESENTES
-import { PRESENTES_FISICOS } from "@/data/presentesFisicos";
+import { PRESENTES_FISICOS } from "@/data/giftsFisicos";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -36,6 +36,15 @@ function slugify(text) {
         .replace(/[^a-zA-Z0-9]+/g, "_")
         .replace(/^_+|_+$/g, "")
         .toLowerCase();
+}
+
+// 🔧 Função para criar ID único por dispositivo
+function generateDeviceId() {
+    return (
+        "dev_" +
+        Math.random().toString(36).substring(2, 10) +
+        Date.now().toString(36)
+    );
 }
 
 // CARD COMPONENT
@@ -60,13 +69,12 @@ function PresenteCard({ nome, imagem, count, link, onClick }) {
                 {count === 1 ? "vez" : "vezes"}
             </p>
 
-
             <div className="mt-auto">
                 <button
                     onClick={onClick}
                     className="mt-3 w-full bg-[#ff7b00] text-white cursor-pointer p-2 text-center rounded-lg font-semibold hover:bg-[#e66f00] transition"
                 >
-                    Ver detalhes
+                    Enviar este presente
                 </button>
             </div>
         </div>
@@ -79,11 +87,22 @@ export default function ListaFisicos() {
     const [presenteSelecionado, setPresenteSelecionado] = useState(null);
     const [enviados, setEnviados] = useState({});
     const [meusPresentes, setMeusPresentes] = useState({});
+    const [deviceId, setDeviceId] = useState(null);
 
-    const userId = "user_temp_id";
-
-    // 🔥 Carregar contadores corretos com slugify
+    // 🔥 Criar ou buscar ID único do dispositivo
     useEffect(() => {
+        let stored = localStorage.getItem("device_id");
+        if (!stored) {
+            stored = generateDeviceId();
+            localStorage.setItem("device_id", stored);
+        }
+        setDeviceId(stored);
+    }, []);
+
+    // Aguarda o deviceId para carregar tudo corretamente
+    useEffect(() => {
+        if (!deviceId) return;
+
         async function carregar() {
             const resultado = {};
             const enviadosUsuario = {};
@@ -96,7 +115,7 @@ export default function ListaFisicos() {
                 if (snap.exists()) {
                     const data = snap.data();
                     resultado[item.nome] = data.count || 0;
-                    enviadosUsuario[item.nome] = data.usuarios?.includes(userId) || false;
+                    enviadosUsuario[item.nome] = data.usuarios?.includes(deviceId) || false;
                 } else {
                     resultado[item.nome] = 0;
                     enviadosUsuario[item.nome] = false;
@@ -107,17 +126,17 @@ export default function ListaFisicos() {
             setMeusPresentes(enviadosUsuario);
         }
         carregar();
-    }, [lista]);
+    }, [lista, deviceId]);
 
     // 🔥 Confirmar envio
     async function confirmarEnvio() {
-        if (!presenteSelecionado) return;
+        if (!presenteSelecionado || !deviceId) return;
 
         const nome = presenteSelecionado.nome;
         const docId = slugify(nome);
         const ref = doc(db, "presentes_enviados", docId);
 
-        const usuarioRef = doc(db, "usuarios", userId);
+        const usuarioRef = doc(db, "usuarios", deviceId);
         await setDoc(usuarioRef, { enviados: [] }, { merge: true });
         await updateDoc(usuarioRef, { enviados: arrayUnion(nome) });
 
@@ -127,12 +146,12 @@ export default function ListaFisicos() {
             if (snap.exists()) {
                 await updateDoc(ref, {
                     count: snap.data().count + 1,
-                    usuarios: arrayUnion(userId),
+                    usuarios: arrayUnion(deviceId),
                 });
             } else {
                 await setDoc(ref, {
                     count: 1,
-                    usuarios: [userId],
+                    usuarios: [deviceId],
                 });
             }
 
@@ -149,20 +168,20 @@ export default function ListaFisicos() {
 
     // 🔥 Retirar envio
     async function retirarResposta() {
-        if (!presenteSelecionado) return;
+        if (!presenteSelecionado || !deviceId) return;
 
         const nome = presenteSelecionado.nome;
         const docId = slugify(nome);
         const ref = doc(db, "presentes_enviados", docId);
         const snap = await getDoc(ref);
 
-        const usuarioRef = doc(db, "usuarios", userId);
+        const usuarioRef = doc(db, "usuarios", deviceId);
         await updateDoc(usuarioRef, { enviados: arrayRemove(nome) });
 
         if (snap.exists() && snap.data().count > 0) {
             await updateDoc(ref, {
                 count: snap.data().count - 1,
-                usuarios: arrayRemove(userId),
+                usuarios: arrayRemove(deviceId),
             });
 
             setEnviados((prev) => ({ ...prev, [nome]: Math.max((prev[nome] || 1) - 1, 0) }));
@@ -171,6 +190,8 @@ export default function ListaFisicos() {
 
         setModalOpen(false);
     }
+
+    if (!deviceId) return null; // evita erros na primeira renderização
 
     return (
         <div className={`${poppins.className} relative overflow-x-hidden`}>

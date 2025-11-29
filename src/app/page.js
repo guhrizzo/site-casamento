@@ -1,8 +1,6 @@
-import Image from "next/image";
-import Button from "./button";
 import { Poppins } from "next/font/google";
 import ContadorNovo from "./contador";
-import MapEmbed from "./MapEmbed";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,12 +18,8 @@ bg-cover bg-center">
           <ContadorNovo />
         </div>
         
-
-
       </main>
-      <div className="">
-        <MapEmbed />
-      </div>
+      
     </div>
   );
 }
