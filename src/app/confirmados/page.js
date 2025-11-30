@@ -21,8 +21,11 @@ export default function ConfirmadosPage() {
   }, []);
 
   return (
-    <div className=" min-h-screen bg-gray-100 p-10 text-black font-poppins lg:mt-[9vh] mt-[16vh]">
-      <Navbar />
+    <div className=" min-h-screen bg-gray-100 p-10  text-black font-poppins lg:mt-[9vh] mt-[16vh]">
+      <div className="absolute left-0 ">
+        <Navbar />
+      </div>
+
       <h1 className="text-4xl font-bold mb-6">Lista de Confirmados</h1>
 
       <div className="mb-6 p-4 bg-white rounded-xl shadow border w-full lg:w-[95vw]">
@@ -36,7 +39,7 @@ export default function ConfirmadosPage() {
           <div key={c.id} className="bg-gray-50 rounded-xl shadow p-4 border w-full lg:w-[95vw]">
             <p className="text-xl font-bold">{c.nome}</p>
             <p className="mt-1">Quantidade: {c.qtd}</p>
-            
+
           </div>
         ))}
       </div>
