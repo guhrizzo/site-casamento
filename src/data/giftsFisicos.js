@@ -26,9 +26,9 @@ export const PRESENTES_FISICOS = [
    },
 
    {
-      nome: "Ferro de Passar Seco e vapor Electrolux antiaderente base ceramica vapor vertical extra 1500W azul marinho ESI60 127v",
-      imagem: "/ferro.jpg",
-      link: "https://www.amazon.com.br/Electrolux-antiaderente-ceramica-vertical-ESI60/dp/B0BX6W6V32/ref=asc_df_B0BX6W6V32?mcid=5af97885eb3b3476881a5351c4c5bc91&tag=googleshopp00-20&linkCode=df0&hvadid=709964506301&hvpos=&hvnetw=g&hvrand=15036366579222119529&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2202900609097&language=pt_BR&gad_source=1&th=1"
+      nome: "Passadeira de Roupa a Vapor Vertical Elgin 110V - Steamer, Vaporizador e Higienizador",
+      imagem: "/passadeiraroupa.jpg",
+      link: "https://www.amazon.com.br/dp/B0BPYR83CF?ref=cm_sw_r_cso_cp_mwn_dp_S0RT38D3393MBXYY76K7&ref_=cm_sw_r_cso_cp_mwn_dp_S0RT38D3393MBXYY76K7&social_share=cm_sw_r_cso_cp_mwn_dp_S0RT38D3393MBXYY76K7&th=1"
    },
    {
       nome: "Purificador Electrolux de Água Gelada Fria e Natural Elétrico Compacto Eletronico placa Filtro refil 6 meses ou 3000l Painel Touch Bivolt Preto PE12P",
