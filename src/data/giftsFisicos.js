@@ -146,11 +146,6 @@ export const PRESENTES_FISICOS = [
       link: "https://www.amazon.com.br/Mesa-cabeceira-Lotus-Off-White/dp/B0B1JLDKLS/ref=asc_df_B0B1JLDKLS?mcid=ffb28e5b29bd31349a29d38a4f16e935&tag=googleshopp00-20&linkCode=df0&hvadid=709968340954&hvpos=&hvnetw=g&hvrand=10150691653280892997&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9100700&hvtargid=pla-2014935400690&psc=1&language=pt_BR&gad_source=1"
    },
    {
-      nome: "Conjunto Assadeiras 6 peças com Tampa Vermelha Marinex",
-      imagem: "/marinex.webp",
-      link: "https://www.mercadolivre.com.br/conjunto-assadeiras-6-pecas-com-tampa-vermelha-marinex/p/MLB27411322?pdp_filters=item_id%3AMLB3463595693&from=gshop&matt_tool=37064035&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090354481&matt_ad_group_id=173090607116&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727882733004&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735125422&matt_product_id=MLB27411322-product&matt_product_partition_id=2389601385546&matt_target_id=aud-1966917494853:pla-2389601385546&cq_src=google_ads&cq_cmp=22090354481&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=22090354481&gbraid=0AAAAAD93qcBdWSH_8I8m0hdEbl7KRMj5n&gclid=CjwKCAiA8vXIBhAtEiwAf3B-g9g1aZkXGL0qAeBX2hK4pb0zNnhttNIV7XH7Js1YUyrfL2KDguNAFBoC5KYQAvD_BwE"
-   },
-   {
       nome: "Panela De Pressão Brinox Ceramic Life Pressure 4,2l Indução",
       imagem: "/assadeira.webp",
       link: "https://www.mercadolivre.com.br/panela-de-presso-brinox-ceramic-life-pressure-42l-induco/p/MLB26582553?pdp_filters=item_id%3AMLB3427606351&from=gshop&matt_tool=13891073&matt_internal_campaign_id=&matt_word=&matt_source=google&matt_campaign_id=22090193717&matt_ad_group_id=174661961644&matt_match_type=&matt_network=g&matt_device=c&matt_creative=727914179467&matt_keyword=&matt_ad_position=&matt_ad_type=pla&matt_merchant_id=735098639&matt_product_id=MLB26582553-product&matt_product_partition_id=2388009209946&matt_target_id=aud-1966917494853:pla-2388009209946&cq_src=google_ads&cq_cmp=22090193717&cq_net=g&cq_plt=gp&cq_med=pla&gad_source=1&gad_campaignid=22090193717&gbraid=0AAAAAD93qcCNJFI98d_tLAdPdko0OIUAy&gclid=CjwKCAiA_orJBhBNEiwABkdmjCQL5KFsPUyMZMgauGoiVVnQ2rRarGw0wjsiNVQiSkmLQpbrLW_7oBoCZSAQAvD_BwE"
