@@ -1,6 +1,8 @@
 import { Poppins, Dancing_Script } from "next/font/google";
 import ContadorNovo from "./contador";
 import Navbar from "./NavBar";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import LocalDoCasamento from "./localCasamento/page";
 
 const poppins = Poppins({
@@ -16,6 +18,7 @@ const dancing = Dancing_Script({
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen items-center justify-center">
+      <SpeedInsights />
       <Navbar />
 
       <main
