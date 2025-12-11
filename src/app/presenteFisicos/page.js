@@ -1,25 +1,12 @@
-// ListaFisicos CORRIGIDA COMPLETA COM SLUGIFY, FIRESTORE E DEVICE-ID
 
 "use client";
 
 import { Poppins } from "next/font/google";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Dialog } from "@headlessui/react";
+import { useState } from "react";
 
 import Navbar from "../NavBar";
 import Footer from "../rodape";
-
-// FIREBASE
-import { db } from "../firebase";
-import {
-    doc,
-    getDoc,
-    setDoc,
-    updateDoc,
-    arrayUnion,
-    arrayRemove,
-} from "firebase/firestore";
 
 // PRESENTES
 import { PRESENTES_FISICOS } from "@/data/giftsFisicos";
@@ -29,26 +16,8 @@ const poppins = Poppins({
     weight: ["300", "400", "500", "600", "700"],
 });
 
-// 🔧 Função segura para gerar IDs de documentos
-function slugify(text) {
-    return text
-        .normalize("NFD")
-        .replace(/[^a-zA-Z0-9]+/g, "_")
-        .replace(/^_+|_+$/g, "")
-        .toLowerCase();
-}
-
-// 🔧 Função para criar ID único por dispositivo
-function generateDeviceId() {
-    return (
-        "dev_" +
-        Math.random().toString(36).substring(2, 10) +
-        Date.now().toString(36)
-    );
-}
-
 // CARD COMPONENT
-function PresenteCard({ nome, imagem, count, link, onClick }) {
+function PresenteCard({ nome, imagem, link, onClick }) {
     return (
         <div className="bg-white p-4 rounded-xl shadow-md hover:shadow-lg transition flex flex-col h-full">
             <div>
@@ -63,18 +32,14 @@ function PresenteCard({ nome, imagem, count, link, onClick }) {
 
             <p className="text-lg font-semibold mt-3 text-black">{nome}</p>
 
-            <p className="text-sm text-gray-600 mt-1">
-                Já enviado{" "}
-                <span className="font-bold text-[#ff7b00]">{count}</span>{" "}
-                {count === 1 ? "vez" : "vezes"}
-            </p>
-
             <div className="mt-auto">
                 <button
                     onClick={onClick}
-                    className="mt-3 w-full bg-[#ff7b00] text-white cursor-pointer p-2 text-center rounded-lg font-semibold hover:bg-[#e66f00] transition"
+                    className="mt-3 w-full bg-[#ff7b00] text-white cursor-pointer p-3 text-center flex gap-2 items-center justify-center rounded-lg font-semibold hover:bg-[#e66f00] transition"
                 >
-                    Enviar este presente
+                    <p>Enviar este presente</p>  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift-fill" viewBox="0 0 16 16">
+                        <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z" />
+                    </svg>
                 </button>
             </div>
         </div>
@@ -83,115 +48,6 @@ function PresenteCard({ nome, imagem, count, link, onClick }) {
 
 export default function ListaFisicos() {
     const [lista] = useState(PRESENTES_FISICOS);
-    const [modalOpen, setModalOpen] = useState(false);
-    const [presenteSelecionado, setPresenteSelecionado] = useState(null);
-    const [enviados, setEnviados] = useState({});
-    const [meusPresentes, setMeusPresentes] = useState({});
-    const [deviceId, setDeviceId] = useState(null);
-
-    // 🔥 Criar ou buscar ID único do dispositivo
-    useEffect(() => {
-        let stored = localStorage.getItem("device_id");
-        if (!stored) {
-            stored = generateDeviceId();
-            localStorage.setItem("device_id", stored);
-        }
-        setDeviceId(stored);
-    }, []);
-
-    // Aguarda o deviceId para carregar tudo corretamente
-    useEffect(() => {
-        if (!deviceId) return;
-
-        async function carregar() {
-            const resultado = {};
-            const enviadosUsuario = {};
-
-            for (let item of lista) {
-                const docId = slugify(item.nome);
-                const ref = doc(db, "presentes_enviados", docId);
-                const snap = await getDoc(ref);
-
-                if (snap.exists()) {
-                    const data = snap.data();
-                    resultado[item.nome] = data.count || 0;
-                    enviadosUsuario[item.nome] = data.usuarios?.includes(deviceId) || false;
-                } else {
-                    resultado[item.nome] = 0;
-                    enviadosUsuario[item.nome] = false;
-                }
-            }
-
-            setEnviados(resultado);
-            setMeusPresentes(enviadosUsuario);
-        }
-        carregar();
-    }, [lista, deviceId]);
-
-    // 🔥 Confirmar envio
-    async function confirmarEnvio() {
-        if (!presenteSelecionado || !deviceId) return;
-
-        const nome = presenteSelecionado.nome;
-        const docId = slugify(nome);
-        const ref = doc(db, "presentes_enviados", docId);
-
-        const usuarioRef = doc(db, "usuarios", deviceId);
-        await setDoc(usuarioRef, { enviados: [] }, { merge: true });
-        await updateDoc(usuarioRef, { enviados: arrayUnion(nome) });
-
-        const snap = await getDoc(ref);
-
-        try {
-            if (snap.exists()) {
-                await updateDoc(ref, {
-                    count: snap.data().count + 1,
-                    usuarios: arrayUnion(deviceId),
-                });
-            } else {
-                await setDoc(ref, {
-                    count: 1,
-                    usuarios: [deviceId],
-                });
-            }
-
-            setEnviados((prev) => ({ ...prev, [nome]: (prev[nome] || 0) + 1 }));
-            setMeusPresentes((prev) => ({ ...prev, [nome]: true }));
-
-            setModalOpen(false);
-            if (presenteSelecionado.link) window.open(presenteSelecionado.link, "_blank");
-        } catch (e) {
-            console.error("Erro ao atualizar:", e);
-            alert("Houve um erro ao registrar seu envio.");
-        }
-    }
-
-    // 🔥 Retirar envio
-    async function retirarResposta() {
-        if (!presenteSelecionado || !deviceId) return;
-
-        const nome = presenteSelecionado.nome;
-        const docId = slugify(nome);
-        const ref = doc(db, "presentes_enviados", docId);
-        const snap = await getDoc(ref);
-
-        const usuarioRef = doc(db, "usuarios", deviceId);
-        await updateDoc(usuarioRef, { enviados: arrayRemove(nome) });
-
-        if (snap.exists() && snap.data().count > 0) {
-            await updateDoc(ref, {
-                count: snap.data().count - 1,
-                usuarios: arrayRemove(deviceId),
-            });
-
-            setEnviados((prev) => ({ ...prev, [nome]: Math.max((prev[nome] || 1) - 1, 0) }));
-            setMeusPresentes((prev) => ({ ...prev, [nome]: false }));
-        }
-
-        setModalOpen(false);
-    }
-
-    if (!deviceId) return null; // evita erros na primeira renderização
 
     return (
         <div className={`${poppins.className} relative overflow-x-hidden`}>
@@ -246,10 +102,8 @@ export default function ListaFisicos() {
                             nome={item.nome}
                             imagem={item.imagem}
                             link={item.link}
-                            count={enviados[item.nome] || 0}
                             onClick={() => {
-                                setPresenteSelecionado(item);
-                                setModalOpen(true);
+                                if (item.link) window.open(item.link, "_blank");
                             }}
                         />
                     ))}
@@ -257,51 +111,6 @@ export default function ListaFisicos() {
 
                 <Footer />
             </div>
-
-            {/* MODAL */}
-            <Dialog
-                open={modalOpen}
-                onClose={() => setModalOpen(false)}
-                className="fixed inset-0 z-50 flex items-center justify-center"
-            >
-                <div className="fixed inset-0 bg-black/40" />
-
-                <div className="bg-white rounded-xl p-6 w-[90%] max-w-md shadow-lg relative z-10">
-                    <h2 className="text-xl font-semibold text-black">Você enviará este presente?</h2>
-                    <p className="text-gray-700 mt-2">
-                        Sua resposta será registrada!
-                        <br />
-                        Você poderá retirar sua resposta se desejar.
-                    </p>
-
-                    <p className="mt-4 font-bold text-xl text-[#ff7b00]">
-                        {presenteSelecionado?.nome}
-                    </p>
-
-                    <div className="flex gap-4 mt-6">
-                        <button
-                            className="flex-1 cursor-pointer hover:bg-green-700 transition-all bg-green-600 text-white p-2 rounded-lg"
-                            onClick={confirmarEnvio}
-                        >
-                            Confirmar
-                        </button>
-
-                        <button
-                            className="flex-1 bg-gray-300 text-black hover:bg-gray-400 cursor-pointer p-2 rounded-lg"
-                            onClick={retirarResposta}
-                        >
-                            Retirar resposta
-                        </button>
-                    </div>
-
-                    <button
-                        className="mt-4 text-sm text-gray-500 cursor-pointer w-full text-center"
-                        onClick={() => setModalOpen(false)}
-                    >
-                        Cancelar
-                    </button>
-                </div>
-            </Dialog>
         </div>
     );
 }
