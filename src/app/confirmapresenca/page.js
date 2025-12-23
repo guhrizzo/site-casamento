@@ -4,6 +4,7 @@ import Image from "next/image";
 import Input from "../input";
 import DropdownQtd from "../dropDown";
 import Navbar from "../NavBar";
+import ProgCasamento from "../progcasamento";
 
 export default function ConfirmarPresenca() {
   const [nome, setNome] = useState("");
@@ -43,9 +44,12 @@ export default function ConfirmarPresenca() {
   }
 
   return (
-    <div className="bg-[#f0e4cb] w-screen min-h-[145vh] flex justify-center py-20 font-poppins">
+    <div className="bg-[#f0e4cb] w-full lg:min-h-[175vh] flex min-h-[250vh] justify-center py-20 font-poppins">
+      <ProgCasamento />
       <Navbar />
-      <div className="flex flex-col lg:flex-row gap-12 w-[92vw] absolute lg:top-[20vh] top-[25vh] ">
+      
+      
+      <div className="flex flex-col lg:flex-row gap-12 w-[92vw] absolute lg:top-[99vh] top-[150dvh] ">
 
         {/* CARD DO CASAL */}
         <div className="bg-[#f2f2f2] rounded-2xl shadow-xl p-8 flex justify-center flex-col h-[60vh] items-center flex-1  text-black">
@@ -90,6 +94,7 @@ export default function ConfirmarPresenca() {
           </button>
         </div>
       </div>
+    
     </div>
   );
 }

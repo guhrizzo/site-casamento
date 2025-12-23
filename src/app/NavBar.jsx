@@ -126,17 +126,6 @@ export default function Navbar() {
                     >
                         Confirmar Presença
                     </a>
-
-                    {/* PROGRAMAÇÃO DO CASAMENTO — NOVO */}
-                    <a
-                        href="/progCasamento"
-                        onClick={(e) => handleNavClick(e, "/progCasamento")}
-                        className={`relative transition-all
-                            ${pathname === "/progCasamento" ? "opacity-100 font-semibold" : "opacity-60"}
-                            hover:opacity-100`}
-                    >
-                        Programação do Casamento
-                    </a>
                 </ul>
             </nav>
 
@@ -196,14 +185,6 @@ export default function Navbar() {
                     Confirmar Presença
                 </a>
 
-                {/* PROGRAMAÇÃO DO CASAMENTO — MOBILE */}
-                <a
-                    href="/progCasamento"
-                    onClick={(e) => handleNavClick(e, "/progCasamento")}
-                    className={pathname === "/progCasamento" ? "opacity-100 font-semibold" : "opacity-70"}
-                >
-                    Programação do Casamento
-                </a>
             </div>
         </div>
     );
